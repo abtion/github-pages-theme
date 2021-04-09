@@ -1,0 +1,56 @@
+
+{% if site.url contains "abtion.com" or site.url contains "localhost:3000" %}
+  <sidebar class="contains-licensed-content">
+{% else %}
+  <sidebar>
+{% endif %}
+
+  <div class="header-spacer">
+    <div class="searchbox">
+      <form action="{{ site.baseurl }}/search.html" method="get">
+        <input class="search__input" type="text" id="search_box" name="query" />
+        <span class="search-icon" />
+      </form>
+    </div>
+  </div>
+
+  <!-- Build a hash of  -->
+  {% assign currentpage = page %} 
+  {% assign directories = "" | split: ',' %} 
+  {% for page in site.pages %} 
+    {% unless directories contains page.dir or page.name == "README.md" %} 
+      {% if page.name contains ".md" %} 
+        {% assign directories = directories | push: page.dir %} 
+  {% endif %} {% endunless %} {% endfor %} 
+  
+  {% assign sorteddirectories = directories | sort %}
+  
+  {% for directory in sorteddirectories %}
+  <div class="folder">
+    <h1>
+      {{ directory | remove_first: "/" | split: "" | reverse | join: "" | remove_first: "/" | split:
+      "" | reverse | join: "" | replace: "_", " " | replace: "/", " / " | capitalize }}
+    </h1>
+
+    {% for page in site.pages %} 
+    {% unless page.name == "README.md" %}
+    
+      {% if page.name contains ".md" and page.dir == directory %}
+        <!-- HIGHLIGHT ACTIVE LINK -->
+        {% if currentpage.url contains directory and page.title == currentpage.title %}
+          <a href="{{site.baseurl}}/{{page.path | replace: '.md', '.html' }}" class="active">
+            {{ page.name | replace: ".md", "" | capitalize | replace: "_", " " }}
+          </a>
+        {% else %}
+          <a href="{{site.baseurl}}/{{page.path | replace: '.md', '.html' }}">
+            {{ page.name | replace: ".md", "" | capitalize | replace: "_", " " }}
+          </a>
+        {% endif %} 
+      {% endif %} 
+
+    {% endunless %} 
+
+    {% endfor %}
+  </div>
+  {% endfor %}
+</sidebar>

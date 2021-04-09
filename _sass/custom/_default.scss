@@ -1,0 +1,96 @@
+main {
+  display: block;
+  width: 100%;
+}
+
+sidebar {
+  display: none;
+}
+
+@mixin wrapper-size($wrapper-width, $wrapper-margin-left, $wrapper-margin-right) {
+  .content_wrapper {
+    width: $wrapper-width;
+    margin-left: $wrapper-margin-left;
+    margin-right: $wrapper-margin-right;
+    padding: 0 0;
+  }
+  #content_head {
+    height: $content-head-height-desktop;
+  }
+}
+
+@include wrapper-size(100%, 0px, 0px);
+
+.content_wrapper {
+  padding: 0 1.5rem;
+}
+
+#content_head {
+  display: flex;
+  align-items: flex-end;
+  border-bottom: 5px solid $theme-color-contrast;
+  height: $content-head-height;
+
+  p {
+    font-size: 0.75rem;
+    margin-bottom: 25px;
+  }
+}
+
+#content_body {
+  width: 100%;
+  white-space: wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  float: right;
+
+  img {
+    max-width: $content-max-width;
+    float: right;
+    margin-bottom: 1rem;
+  }
+
+  h1 {
+    margin: 2.3rem 0;
+    font-size: 2.5rem;
+    left: $margin-left;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: $margin-left + $content-max-width) {
+  @include wrapper-size($content-max-width, $margin-left, auto);
+
+  $content-body-width: 480px;
+
+  #content_body {
+    width: $content-body-width;
+    float: right;
+    padding-top: 2rem;
+    margin-left: $margin-left;
+
+    h1 {
+      position: absolute;
+      left: $margin-left;
+      text-align: left;
+      margin: 0;
+      padding: 0;
+      width: $content-max-width - $content-body-width - 20px;
+    }
+  }
+}
+
+@media (min-width: $min-width-desktop) {
+  h1 {
+    left: $sidebar-width + $margin-left !important;
+  }
+}
+
+@media (min-width: $sidebar-width + + $margin-left +$content-max-width) {
+  sidebar {
+    display: block;
+  }
+}
