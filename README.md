@@ -13,7 +13,27 @@ jekyll new .
 Set in `_config.yml`:
 
 ```yml
+baseurl: '/<github-repo-name>'
 remote_theme: abtion/github-pages-theme
+
+# OPTIONAL SEO SETTINGS
+plugins:
+  - jekyll-seo-tag
+
+title: <Website title>
+tagline: <Small click-bait description to appear in open graphic links)>
+description: <Small click-bait description to appear in open graphic links)>
+email: <your@email.com>
+social:
+  name: <Personal/artist or Company name>
+  links:
+    - https://github.com/<github-username>
+
+defaults:
+  - scope:
+      path: ''
+    values:
+      image: /<your-open-graphic-link-image>.png
 ```
 
 ### Local
@@ -23,7 +43,10 @@ Add a `Gemfile`:
 ```ruby
 source "https://rubygems.org"
 
-gem 'github-pages', group: :jekyll_plugins
+group :jekyll_plugins do
+  gem 'github-pages'
+  gem 'jekyll-seo-tag'
+end
 
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 ```
