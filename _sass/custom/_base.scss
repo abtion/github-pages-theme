@@ -117,6 +117,18 @@ ol {
 
 ul {
   list-style-type: '\2015   ';
+  ul {
+    list-style-type: disc;
+    ul {
+      list-style-type: '\2013   ';
+      ul {
+        list-style-type: circle;
+        ul {
+          list-style-type: '\2013   ';
+        }
+      }
+    }
+  }
 }
 
 blockquote {
