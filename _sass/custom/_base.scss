@@ -84,6 +84,14 @@ p {
   text-align: justify;
 }
 
+li:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
+li:first-child {
+  margin-top: 0.5rem;
+}
+
 strong {
   font-weight: 600;
 }
