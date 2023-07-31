@@ -72,8 +72,28 @@ h2 {
   font-size: 1.75rem;
 }
 
+h2:not(:first-of-type) {
+  margin-top: 4rem;
+}
+
 h3 {
   font-size: 1.25rem;
+}
+
+h3:not(:first-of-type) {
+  margin-top: 3rem;
+}
+
+h4:not(:first-of-type) {
+  margin-top: 2rem;
+}
+
+h5:not(:first-of-type) {
+  margin-top: 1rem;
+}
+
+h6:not(:first-of-type) {
+  margin-top: 0.5rem;
 }
 
 li,
