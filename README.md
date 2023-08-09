@@ -1,58 +1,8 @@
 # Abtion Github Pages Theme
 
-## Usage 
+This is [inside.abtion.com](https://inside.abtion.com/) [Jekyll Theme](https://jekyllrb.com/docs/themes/). The content is managed in [the guidelines repo](https://github.com/abtion/guidelines).
 
-### Public
-
-If jekyll has not been added to your repository, clone it to your computer and run:
-
-```sh
-jekyll new .
-```
-
-Set in `_config.yml`:
-
-```yml
-baseurl: '/<github-repo-name>'
-remote_theme: abtion/github-pages-theme
-
-# OPTIONAL SEO SETTINGS
-plugins:
-  - jekyll-seo-tag
-
-title: <Website title>
-tagline: <Small click-bait description to appear in open graphic links)>
-description: <Small click-bait description to appear in open graphic links)>
-email: <your@email.com>
-social:
-  name: <Personal/artist or Company name>
-  links:
-    - https://github.com/<github-username>
-
-defaults:
-  - scope:
-      path: ''
-    values:
-      image: /<your-open-graphic-link-image>.png
-```
-
-### Local
-
-Add a `Gemfile`:
-
-```ruby
-source "https://rubygems.org"
-
-group :jekyll_plugins do
-  gem 'github-pages'
-  gem 'jekyll-seo-tag'
-end
-
-gem 'wdm', '>= 0.1.0' if Gem.win_platform?
-gem 'webrick'
-```
-
-Install the gems
+## Run the theme locally
 
 ```sh
 bundle install
@@ -61,18 +11,16 @@ bundle install
 Serve the application
 
 ```sh
-bundle exec jekyll serve --livereload
-```
-
-If you wish to serve the version with licensed content then use port 3000
-
-```sh
 bundle exec jekyll serve --livereload --port 3000
 ```
 
+## Deploy
+
+Changes in this repo will not autodeploy. Instead, the theme is pulled when [the guidelines](https://github.com/abtion/guidelines) get deployed. Therefore, you can either make an empty commit in that repo, or manually run the [CI](https://github.com/abtion/guidelines/actions).
+
 ## Folder Structure Explanation
 
-The theme is forked from [Minima](https://github.com/jekyll/minima) therefore has all the necessary files and directories to have a new Jekyll site up and running with zero-configuration.
+The theme is forked from [Minima](https://github.com/jekyll/minima). 
 
 ### _layouts
 
@@ -110,10 +58,6 @@ Note:
 - `js/` - javascript search functionality
 - `main.scss` - an import of licensed fonts & custom sass styling
 - `search.html` - a helper page for the search functionality for the theme, modified from https://github.com/CloudCannon/bakery-store-jekyll-template
-
-## Contributing
-
-Bug reports and pull requests are welcome ❤️
 
 ## License
 
