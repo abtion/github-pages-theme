@@ -2,10 +2,11 @@
   box-sizing: border-box;
 }
 
-$theme-color: #fef4ef;
-$theme-color-dark: #f2d7ca;
-$theme-color-contrast: #36244d;
-$theme-color-link: #0031b8;
+$theme-color: #ffffff;
+$theme-color-dark: #ededed;
+$theme-color-contrast: rgb(15, 15, 15);
+$theme-color-link: rgb(15, 15, 15);
+$theme-color-link-background: #2eef92;
 
 $font-size: 1rem;
 
@@ -47,9 +48,17 @@ main,
 sidebar {
   --font-family: sans-serif;
   &.contains-licensed-content {
-    --font-family: 'Hansen Grotesque', sans-serif;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      --font-family: "Hansen Grotesque", sans-serif;
+      font-family: var(--font-family);
+    }
   }
-  font-family: var(--font-family);
+  font-family: sans-serif;
 }
 
 h1,
@@ -118,11 +127,12 @@ strong {
 
 a {
   color: $theme-color-link;
-  text-decoration: none;
+  text-decoration: underline;
+  transition: background-color 100ms;
 }
 
 a:hover {
-  color: lighten($theme-color-link, 40%);
+  background-color: $theme-color-link-background;
 }
 
 ol,
@@ -136,15 +146,15 @@ ol {
 }
 
 ul {
-  list-style-type: '\2015   ';
+  list-style-type: "\2015   ";
   ul {
     list-style-type: disc;
     ul {
-      list-style-type: '\2013   ';
+      list-style-type: "\2013   ";
       ul {
         list-style-type: circle;
         ul {
-          list-style-type: '\2013   ';
+          list-style-type: "\2013   ";
         }
       }
     }
@@ -188,6 +198,6 @@ hr {
   margin-bottom: 1rem;
 }
 
-li input[type='checkbox'] {
+li input[type="checkbox"] {
   display: none;
 }

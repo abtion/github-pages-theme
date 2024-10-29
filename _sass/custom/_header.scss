@@ -16,6 +16,10 @@ header {
     pointer-events: none;
   }
 
+  a#logo {
+    background-color: transparent;
+  }
+
   img {
     width: $header-logo-size;
     height: $header-logo-size;
