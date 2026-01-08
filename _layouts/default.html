@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
   {%- include head.html -%}
-  
+
     <body id="layout-default__body" >
 
     {%- include sidebar.html -%}
@@ -18,10 +18,12 @@
           <p>
             {{ page.dir | remove_first: "/" | split: "" | reverse | join: "" | remove_first: "/" | split: ""
             | reverse | join: "" | replace: "_", " " | replace: "/", " / " | capitalize }}
-          </p>          
+          </p>
         </div>
 
         <div id="content_body">{{ content }}</div>
+
+        {%- include edit_page_link.html -%}
       </div>
 
     </main>
